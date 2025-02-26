@@ -7,7 +7,7 @@ def call(String DockerRepo ImageTag) {
     withCredentials([usernamePassword(credentialsId: "DockerHub", passwordVariable: "PASSWORD", usernameVariable: "USERNAME")]) {
         sh "docker build -t $DockerRepo:$ImageTag ."            // Usind varriables that will be specified in the jenkins file
         sh "echo $PASSWORD | docker login -u $USERNAME --password-stdin"
-        sh "docker push samuelcj310/java-maven-app:java-maven-app_3.0"
+        sh "docker push samuelcj310/java-maven-app:java-maven-app_4.0"
     }
     echo "Successfuly deployed to ${ENV} and image pushed to the Image Repository!!!"
 } 
